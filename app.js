@@ -52,6 +52,8 @@ app.get('/location',(req,res) => {
 //     }
 // })
 
+
+
 app.get('/restaurants',(req,res) => {
     let query = {}
     let stateId = Number(req.query.stateId);
@@ -68,6 +70,15 @@ app.get('/restaurants',(req,res) => {
         res.send(result)
     })
 })
+
+
+app.get('/quicksearch',(req,res) => {
+    db.collection('quicksearch').find().toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 
 app.get(`/filter/:mealId`,(req,res) => {
     let query = {}
