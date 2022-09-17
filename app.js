@@ -57,11 +57,11 @@ app.get('/location',(req,res) => {
 app.get('/restaurants',(req,res) => {
     let query = {}
     let stateId = Number(req.query.stateId);
-    let mealId = Number(req.query.mealId);
+    let mealtype_id = Number(req.query.mealtype_id);
     if(stateId){
        query = {state_id:stateId}
-    }else if(mealId){
-         query = {"mealTypes.mealtype_id":mealId}
+    }else if(mealtype_id){
+         query = {"mealTypes.mealtype_id":mealtype_id}
     } else {
         query = {}
     }
