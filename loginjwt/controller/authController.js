@@ -29,8 +29,12 @@ router.post('/register',(req,res) => {
         phone:req.body.phone,
         role:req.body.role?req.body.role:'User'
     },(err,data) => {
-        if(err) return res.send('Erroe While Register')
-        res.send('Registration Successfull')
+        if(err){
+            console.log(err)
+            return res.json({err:err})
+        }
+       
+        res.send('Registration Successful')
     })
 })
 
